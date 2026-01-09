@@ -2,13 +2,10 @@ package github.qa_guru;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 import java.util.stream.Collectors;
 
-public class collections {
+public class Collections {
     @Test
     public void main1() {
 
@@ -48,8 +45,19 @@ public class collections {
         for (var var : stringList){
             System.out.println("Вывод элементов списка перебором " + var.toUpperCase());
         }
+        for (int i=0; i < stringList.size(); i++){
+            System.out.println(stringList.get(i));
+        }
 
+        // SET (анаог list. но хранит только уникальные значения
 
+        Set<Integer> stringSet = new HashSet<>();
+        stringSet.add(1);
+        stringSet.add(1);
+        stringSet.add(3);
+        System.out.println("Список SET " + stringSet); // [1, 3],  т.к. второе добавление не удалось
+
+        Map <String, Integer> aMap = new HashMap<>();// нужно занать как работает hashMap, для чего eaquals и hashCode
 
     }
 

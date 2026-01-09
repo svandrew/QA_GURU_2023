@@ -1,6 +1,6 @@
 package github.qa_guru;
 
-public class less09 {
+public class Less09 {
     public static void main(String[] args) {
         int[] myArr = {3,4,76,7,8,6,23,32};
 

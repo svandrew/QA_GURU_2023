@@ -2,7 +2,7 @@ package github.qa_guru;
 
 import org.junit.jupiter.api.Test;
 
-public class massivies {
+public class Massivies {
     @Test
     public void main1() {
         int numElement = 1;

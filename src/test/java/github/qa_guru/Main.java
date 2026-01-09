@@ -163,22 +163,6 @@ public class Main {
         stringSet.add(1);
         stringSet.add(10);
 
-        Map<Integer, Human> aMap = new HashMap<>();
-        aMap.put(3434343, new Human("Dima", 33, "M"));
-        aMap.put(2342323, new Human("Petr", 30, "M"));
-        aMap.put(4535355, new Human("Ivan", 20, "M"));
-
-        Set<Integer> passportNumbers = aMap.keySet();
-        Collection<Human> humans = aMap.values();
-        Set<Map.Entry<Integer, Human>> entrySet = aMap.entrySet();
-
-        for (Map.Entry<Integer, Human> entry : entrySet) {
-            if (entry.getKey() == 2342323) {
-                System.out.println("Нашли Петра: " + entry.getValue().getName());
-            }
-        }
-
-
     }
 
 
