@@ -3,4 +3,4 @@
 /workspace.xml
 vcs.xml
 misc.xml
-/.gradle/
+/.gradle/*.*
