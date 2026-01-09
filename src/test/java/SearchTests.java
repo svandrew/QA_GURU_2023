@@ -16,7 +16,7 @@ public class SearchTests {
         Configuration.holdBrowserOpen=true;
         Configuration.timeout=10000;
         open("https://www.github.com/");
-        $("[data-target=qbsearch-input]").setValue("selenide").pressEnter();
+        $("[data-target=qbsearch-input.inputButtonText]").setValue("selenide").pressEnter();
         $("[id=search]").shouldHave(text("selenide.org"));
     }
 
