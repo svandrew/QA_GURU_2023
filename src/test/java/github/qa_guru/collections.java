@@ -17,7 +17,7 @@ public class collections {
     }
 
     @Test
-    public  void maim2(){
+    public  void main2(){
         int[] arr = {1, 2, 3, 4, 5};
 
 // Сумма
@@ -42,7 +42,7 @@ public class collections {
     }
 
     @Test
-    public void main2(){
+    public void main3(){
         // Сам массив
         int[] numbers = {3, 2, 1};
         System.out.println(Arrays.toString(numbers));
