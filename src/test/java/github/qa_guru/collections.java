@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
 
 public class collections {
     @Test
@@ -13,7 +15,42 @@ public class collections {
         // <> - джененрик тип
         List<String> stringList = new ArrayList<>();
         stringList.add("Dima");
-        stringList.addAll(Arrays.asList("Petr", "Ivan"));
+        stringList.addAll(Arrays.asList("Petr", "Ivan", "Victor", "Nick"));
+
+        String str = stringList.get(0);
+        System.out.println("Первый элемент: " + str);
+
+        stringList.remove(0);
+        System.out.println("Первый элемент после удаления: " + stringList.get(0));
+        System.out.println("Список после удаления элементов1: " + stringList);
+
+        stringList.remove("Ivan"); // удаляет первое вхождение
+        System.out.println("Список после удаления элементов2: " + stringList);
+
+        // Находим индекс не сузествующего Элемента
+        var index0 = stringList.indexOf("арвроа");
+        System.out.println("Индекс элемента: " + index0); // -1 если элемент не найден!!!
+
+        // Находим индекс не существующего Элемента
+        var index = stringList.indexOf("Petr");
+        System.out.println("Индекс элемента: " + index);
+
+        stringList.stream()
+                .filter(s -> s.contains("i"))
+                .forEach(System.out::println);
+
+        // альтернативный вариант
+        List<String> filteredList = stringList.stream()
+                .filter(s -> s.toLowerCase().contains("i"))
+                .collect(Collectors.toList());
+        System.out.println(filteredList); // [Victor, Nick]
+
+        for (var var : stringList){
+            System.out.println("Вывод элементов списка перебором " + var.toUpperCase());
+        }
+
+
+
     }
 
     @Test
