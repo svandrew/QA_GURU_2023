@@ -111,6 +111,37 @@ public class Main {
         } while (attempts < 0);
         // Вывод: всегда выполнится 3 раза
 
+        // continue - пропускает текущую итерацию
+        for (int i = 0; i < 10; i++) {
+            if (i % 2 == 0) {
+                continue; // пропускаем четные числа
+            }
+            System.out.print(i + " ");
+        }         // Вывод: 1 3 5 7 9
+
+
+        // Пример бесконечного цикла с условием выхода
+        int count = 0;
+        while (true) {
+            count++;
+            System.out.println("Проход " + count);
+            if (count >= 10) {
+                System.out.println("Достигнут предел!");
+                break;
+            }
+        }
+
+        // Метки для вложенных циклов
+        outerLoop: for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (i == 1 && j == 1) {
+                    System.out.println("Прерываем оба цикла");
+                    break outerLoop;
+                }
+                System.out.println("i=" + i + ", j=" + j);
+            }
+        }
+
         System.out.println("###################");
 
 
