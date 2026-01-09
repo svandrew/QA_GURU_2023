@@ -1,0 +1,12 @@
+.idea/
+build/
+.gradle/
+.allure/
+allure-results/
+out
+src/main/resources/launch.txt
+.bin/
+.classpath
+.project
+.DS_Store
+src/test/resources/pdf/**/*.pdf

@@ -1,10 +1,10 @@
 package github.qa_guru;
 
-public class Human {
+class Human {
 
-    String name;
-    int age;
-    String sex;
+    private String name;
+    private int age;
+    private String sex;
 
     public Human(String name, int age, String sex) {
         this.name = name;
@@ -12,15 +12,13 @@ public class Human {
         this.sex = sex;
     }
 
-    public String getName() {
+    public String getName() {  // т.к. есть @Getter
         return name;
     }
 
     public int getAge() {
         return age;
     }
-
-    public String getSex() {
-        return sex;
+    public String getSex() {        return sex;
     }
 }

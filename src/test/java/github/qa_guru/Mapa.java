@@ -32,9 +32,10 @@ public class Mapa {
 
         Set<Map.Entry<Integer, Human>> entrySet = aMap.entrySet(); // Entry - это пара (ключ-занчение) - или pair (пара)
 
-        for (Map.Entry<Integer, Human> entry : entrySet) {
+        for (var entry : entrySet) {
             if (entry.getKey() == 2342323) {
                 System.out.println("Нашли Петра: " + entry.getValue().getName());
+                System.out.println("Нашли Петра: " + entry.getValue().getName()); // то же самое, что и name
             }
 
         }
