@@ -57,8 +57,8 @@ public class Collections {
         stringSet.add(3);
         System.out.println("Список SET " + stringSet); // [1, 3],  т.к. второе добавление не удалось
 
-        Map <String, Integer> aMap = new HashMap<>();// нужно занать как работает hashMap, для чего eaquals и hashCode
-
+        Map <String, Integer> aMap = new HashMap<>(); // нужно занать как работает hashMap, для чего eaquals и hashCode
+        // нужно занать различия между list, set и map
     }
 
     @Test
