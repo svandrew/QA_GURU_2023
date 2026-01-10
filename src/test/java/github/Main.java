@@ -2,17 +2,20 @@ package github;
 
 import github.data.Country;
 import github.data.ICard;
-import github.data.VisaCard;
+import github.data.UnionPayCard;
 
 public class Main {
 
     public static void main(String[] args) {
-        ICard visaCard = new VisaCard();
-        visaCard.setBalance(100);
-        System.out.println(visaCard.getPaymentSystem());
+        invoke(new UnionPayCard());
+    }
 
-        visaCard.payInCountry(Country.RU, 50);
-        System.out.println("Баланс после операции: " + visaCard.getBalance());
+    public static void invoke(ICard card) {
+        card.setBalance(100);
+        System.out.println(card.getPaymentSystem());
+
+        card.payInCountry(Country.RU, 50);
+        System.out.println("Баланс после операции: " + card.getBalance());
 
     }
 }
