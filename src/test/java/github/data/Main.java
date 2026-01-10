@@ -1,14 +1,11 @@
-package github;
-
-import github.data.Card;
-import github.data.Country;
-import github.data.VisaCard;
+package github.data;
 
 public class Main {
 
     public static void main(String[] args) {
-        Card visaCard = new VisaCard();
+        ICard visaCard = new VisaCard();
         visaCard.setBalance(100);
+     //   visaCard.setBalance(100);
         System.out.println(visaCard.getPaymentSystem());
 
         visaCard.payInCountry(Country.RU, 50);

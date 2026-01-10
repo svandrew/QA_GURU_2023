@@ -1,6 +1,6 @@
 package github.data;
 
-public abstract class Card {
+public abstract class Card implements ICard {
 
     protected String cardHolder;
     protected int balance;
