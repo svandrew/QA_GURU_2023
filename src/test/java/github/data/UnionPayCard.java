@@ -7,9 +7,10 @@ public class UnionPayCard extends Card {
     }
 
     protected boolean isCountryValidForTheseCard(Country country) {
-        if (country == Country.CN)
+        if (country == Country.CN) // Только Китай
             return true;
         else
             return false;
     }
+    //  return country == Country.CN; // более короткая запись условия
 }

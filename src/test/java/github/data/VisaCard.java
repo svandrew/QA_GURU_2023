@@ -7,6 +7,6 @@ public class VisaCard extends Card {
     }
 
     protected boolean isCountryValidForTheseCard(Country country) {
-        return true;
+        return true; // Виза работает везде
     }
 }
