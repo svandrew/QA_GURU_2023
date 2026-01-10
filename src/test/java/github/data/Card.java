@@ -12,9 +12,11 @@ public abstract class Card implements ICard {
     }
 
     public void setBalance(int balance) {
-        if (balance < 0)
-            return;
-        else {
+        if (balance < 0){
+            System.out.println("Пополнение баланса невозможно");
+        return;
+        }
+        else{
             System.out.println("Пополнение баланса: " + balance);
             this.balance = balance;
         }

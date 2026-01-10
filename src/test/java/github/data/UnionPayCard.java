@@ -5,7 +5,7 @@ public class UnionPayCard extends Card {
     public UnionPayCard() {
         super(PaymentSystem.UNION_PAY);
     }
-
+    @Override
     protected boolean isCountryValidForTheseCard(Country country) {
         if (country == Country.CN) // Только Китай
             return true;

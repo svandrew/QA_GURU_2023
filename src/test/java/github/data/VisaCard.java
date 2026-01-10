@@ -5,7 +5,7 @@ public class VisaCard extends Card {
     public VisaCard() {
         super(PaymentSystem.VISA);
     }
-
+    @Override
     protected boolean isCountryValidForTheseCard(Country country) {
         return true; // Виза работает везде
     }
