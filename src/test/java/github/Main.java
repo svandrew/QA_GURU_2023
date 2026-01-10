@@ -1,4 +1,8 @@
-package github.data;
+package github;
+
+import github.data.Country;
+import github.data.ICard;
+import github.data.VisaCard;
 
 public class Main {
 
