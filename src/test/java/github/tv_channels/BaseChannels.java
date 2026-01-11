@@ -31,6 +31,7 @@ public abstract class BaseChannels {
                     String value = listChannels.get(i);
                     if (listChannels.get(i).equals(channelName)) {
                         listChannels.remove(value);
+                        System.out.println("Удален канал: " + value);
                     }
                 }
             }
@@ -62,6 +63,7 @@ public abstract class BaseChannels {
                 String value = pair.getValue();
                 if (value.equals(channelName)) {
                     map.remove(key);
+                    System.out.println("Удален канал: "+channelName);
                     return;
                 }
             }
@@ -72,11 +74,12 @@ public abstract class BaseChannels {
 
     public void deleteValueFromSet(String categoryName, HashSet<String> set) {
         set.remove(categoryName);
+        System.out.println("Удалена категория: "+categoryName);
     }
 
     public void searchValueInSet(String categoryName, HashSet<String> set) {
         if (set.contains(categoryName)) {
-            System.out.println("Категория найдена");
+            System.out.println("Категория "+ categoryName + " найдена");
         } else {
             System.out.println("Категория не найдена");
         }

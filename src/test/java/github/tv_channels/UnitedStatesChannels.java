@@ -47,6 +47,7 @@ public class UnitedStatesChannels extends BaseChannels {
     public void addValueToMap(String channelName, HashMap<Integer, String> map, Country country) {
         if (country == Country.USA) {
             map.put(map.size() + 1, channelName);
+            System.out.println("Довалане канал: " +channelName);
         } else {
             System.out.println("You can't add channels from another locale");
         }

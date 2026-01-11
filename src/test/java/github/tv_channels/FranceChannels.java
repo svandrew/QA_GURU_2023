@@ -57,6 +57,7 @@ public class FranceChannels extends BaseChannels {
     public void addValueToSet(String categoryName, HashSet<String> set, Country country) {
         if (country == Country.FR) {
             set.add(categoryName);
+            System.out.println("Добавлена категормия: "+categoryName);
         } else {
             System.out.println("this category cannot be added to this locale");
         }

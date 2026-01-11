@@ -10,7 +10,7 @@ public class RussianChannels extends BaseChannels {
 
     @Override
     public List<String> createListChannels() {
-        return new ArrayList<>(List.of("Первый", "ТНТ", "СТС", "НТВ", "ТВ3");
+        return new ArrayList<>(List.of("Первый", "ТНТ", "СТС", "НТВ", "ТВ3"));
     }
 
     @Override
@@ -35,6 +35,7 @@ public class RussianChannels extends BaseChannels {
     public void addValueToList(String channelName, List<String> listChannels, Country country) {
         if (country == Country.RU) {
             listChannels.add(channelName);
+            System.out.println("Добавлен канал: "+channelName);
         } else {
             System.out.println("нельзя добавлять каналы из другой локалии");
         }
