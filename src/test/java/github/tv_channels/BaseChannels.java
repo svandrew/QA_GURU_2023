@@ -24,22 +24,6 @@ public abstract class BaseChannels {
 
     public abstract void addValueToSet(String categoryName, HashSet<String> set, Country country);
 
-    public void deleteValueFromList(String channelName, List<String> listChannels) {
-        if (listChannels.contains(channelName)) {
-            while (listChannels.contains(channelName)) {
-                for (int i = 0; i < listChannels.size(); i++) {
-                    String value = listChannels.get(i);
-                    if (listChannels.get(i).equals(channelName)) {
-                        listChannels.remove(value);
-                        System.out.println("Удален канал: " + value);
-                    }
-                }
-            }
-        } else {
-            System.out.println("Каналы не найдены");
-        }
-    }
-
     public void searchValueInList(String channelName, List<String> listChannels) {
         if (listChannels.contains(channelName)) {
             System.out.println("Канал" + " " + channelName + " " + "найден");
@@ -69,6 +53,22 @@ public abstract class BaseChannels {
             }
         } else {
             System.out.println("Канал не найден");
+        }
+    }
+
+    public void deleteValueFromList(String channelName, List<String> listChannels) {
+        if (listChannels.contains(channelName)) {
+            while (listChannels.contains(channelName)) {
+                for (int i = 0; i < listChannels.size(); i++) {
+                    String value = listChannels.get(i);
+                    if (listChannels.get(i).equals(channelName)) {
+                        listChannels.remove(value);
+                        System.out.println("Удален канал: " + value);
+                    }
+                }
+            }
+        } else {
+            System.out.println("Каналы не найдены");
         }
     }
 
