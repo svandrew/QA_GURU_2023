@@ -14,13 +14,26 @@ public class PhoneWallet implements ICard {
     }
 
     @Override
-    public void setBalance(int balance) { this.balance = balance; }
+    public void setBalance(int balance) {
+        if (balance < 0){
+            System.out.println("Пополнение баланса невозможно");
+            return;
+        }
+        else{
+            System.out.println("Пополнение баланса: " + balance);
+            this.balance = balance;
+        }
+    }
 
     @Override
-    public int getBalance() { return balance; }
+    public int getBalance() {
+        return balance;
+    }
 
     @Override
-    public PaymentSystem getPaymentSystem() { return null; }
+    public PaymentSystem getPaymentSystem() {
+        return null;
+    }
 
     protected boolean isBalanceGreaterOrEqualThan(int amount) {
         if (balance >= amount)
