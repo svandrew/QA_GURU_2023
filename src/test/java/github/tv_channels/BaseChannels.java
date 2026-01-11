@@ -1,9 +1,6 @@
 package github.tv_channels;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public abstract class BaseChannels {
     protected Country country;
@@ -16,7 +13,7 @@ public abstract class BaseChannels {
 
     protected abstract HashMap<Integer, String> createMapChannels();
 
-    protected abstract HashSet<String> createCategoryChannels();
+    protected abstract Set<String> createCategoryChannels();
 
     public abstract void addValueToList(String channelName, List<String> listChannels, Country country);
 

@@ -27,9 +27,9 @@ public class UnitedStatesChannels extends BaseChannels {
     }
 
     @Override
-    public HashSet<String> createCategoryChannels() {
+    public Set<String> createCategoryChannels() {
         HashSet<String> category = new HashSet<>();
-        Collections.addAll(category, "Culture", "Sports", "Movies", "Music", "Science");
+        category.addAll(Set.of("Culture", "Sports", "Movies", "Music", "Science"));
         return category;
     }
 
