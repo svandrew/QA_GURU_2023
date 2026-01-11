@@ -40,6 +40,14 @@ public abstract class BaseChannels {
         }
     }
 
+    public void searchValueInSet(String categoryName, HashSet<String> set) {
+        if (set.contains(categoryName)) {
+            System.out.println("Категория "+ categoryName + " найдена");
+        } else {
+            System.out.println("Категория не найдена");
+        }
+    }
+
     public void deleteValueFromMap(String channelName, HashMap<Integer, String> map) {
         if (map.containsValue(channelName)) {
             for (var pair : map.entrySet()) {
@@ -75,14 +83,6 @@ public abstract class BaseChannels {
     public void deleteValueFromSet(String categoryName, HashSet<String> set) {
         set.remove(categoryName);
         System.out.println("Удалена категория: "+categoryName);
-    }
-
-    public void searchValueInSet(String categoryName, HashSet<String> set) {
-        if (set.contains(categoryName)) {
-            System.out.println("Категория "+ categoryName + " найдена");
-        } else {
-            System.out.println("Категория не найдена");
-        }
     }
 }
 
