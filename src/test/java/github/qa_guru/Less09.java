@@ -1,7 +1,11 @@
 package github.qa_guru;
 
+import org.junit.jupiter.api.Test;
+
 public class Less09 {
-    public static void main(String[] args) {
+
+    @Test
+    public void main1() {
         int[] myArr = {3,4,76,7,8,6,23,32};
 
         //выводит все чётные и нечётные числа используя оператор %

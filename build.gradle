@@ -7,6 +7,9 @@ repositories {
 }
 
 dependencies {
+
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.0'
+
     testImplementation (
             "com.codeborne:selenide:6.19.1",
             "org.junit.jupiter:junit-jupiter:5.9.3",
@@ -17,6 +20,12 @@ dependencies {
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
+}
+
+task runMiniJUnit(type: JavaExec) {
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'guru.qa.MiniJUnit'
+    systemProperties = System.properties // опционально: передать системные свойства
 }
 
 test {
