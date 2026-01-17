@@ -1,4 +1,4 @@
-package github.tv_channels;
+package github.tv_channels_abstract_class;
 
 import java.util.*;
 

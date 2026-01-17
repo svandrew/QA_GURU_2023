@@ -1,41 +1,41 @@
-package github.tv_channels;
+package github.tv_channels_abstract_class;
 
 import java.util.*;
 
-public class UnitedStatesChannels extends BaseChannels {
+public class FranceChannels extends BaseChannels {
 
-    public UnitedStatesChannels() {
-        super(Country.USA);
+    public FranceChannels() {
+        super(Country.FR);
     }
 
     @Override
-    public List<String> createListChannels() {
+    public ArrayList<String> createListChannels() {
         ArrayList<String> channels = new ArrayList<>();
-        Collections.addAll(channels, "FOX", "ABC East", "New York today", "DallasTv", "The Movies Channel");
+        Collections.addAll(channels, "Canal+", "LCI", "Paris Premiere", "CStar", "France News");
         return channels;
     }
 
     @Override
     public HashMap<Integer, String> createMapChannels() {
         HashMap<Integer, String> channelsMap = new HashMap<>();
-        channelsMap.put(1, "FOX");
-        channelsMap.put(2, "ABC East");
-        channelsMap.put(3, "New York today");
-        channelsMap.put(4, "DallasTv");
-        channelsMap.put(5, "The Movies Channel");
+        channelsMap.put(1, "Canal+");
+        channelsMap.put(2, "LCI");
+        channelsMap.put(3, "Paris Premiere");
+        channelsMap.put(4, "CStar");
+        channelsMap.put(5, "France News");
         return channelsMap;
     }
 
     @Override
-    public Set<String> createCategoryChannels() {
+    public HashSet<String> createCategoryChannels() {
         HashSet<String> category = new HashSet<>();
-        category.addAll(Set.of("Culture", "Sports", "Movies", "Music", "Science"));
+        Collections.addAll(category, "Culture", "Sports", "Movies", "Music", "Science");
         return category;
     }
 
     @Override
     public void addValueToList(String channelName, List<String> listChannels, Country country) {
-        if (country == Country.USA) {
+        if (country == Country.FR) {
             listChannels.add(channelName);
         } else {
             System.out.println("You can't add channels from another locale");
@@ -45,9 +45,8 @@ public class UnitedStatesChannels extends BaseChannels {
 
     @Override
     public void addValueToMap(String channelName, HashMap<Integer, String> map, Country country) {
-        if (country == Country.USA) {
+        if (country == Country.FR) {
             map.put(map.size() + 1, channelName);
-            System.out.println("Добавлен канал:  " +channelName);
         } else {
             System.out.println("You can't add channels from another locale");
         }
@@ -56,8 +55,9 @@ public class UnitedStatesChannels extends BaseChannels {
 
     @Override
     public void addValueToSet(String categoryName, HashSet<String> set, Country country) {
-        if (country == Country.USA) {
+        if (country == Country.FR) {
             set.add(categoryName);
+            System.out.println("Добавлена категормия: "+categoryName);
         } else {
             System.out.println("this category cannot be added to this locale");
         }

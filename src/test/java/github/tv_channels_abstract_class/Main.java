@@ -1,6 +1,5 @@
-package github.tv_channels;
+package github.tv_channels_abstract_class;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
