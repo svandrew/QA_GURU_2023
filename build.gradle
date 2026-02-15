@@ -1,32 +1,56 @@
 plugins {
     id 'java'
+
 }
 
-repositories {
-    mavenCentral()
+
+version = '1.0'
+
+
+
+java {
+
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+allprojects {
+
+    apply plugin: 'java'
+
+    repositories {
+        maven {
+            url 'http://binary/artifactory/public'
+            allowInsecureProtocol = true
+        }
+        maven {
+            url 'http://binary/artifactory/epam-reportportal'
+            allowInsecureProtocol = true
+        }
+        maven {
+            url 'http://binary/artifactory/gradleplugins/'
+            allowInsecureProtocol = true
+        }
+
+        mavenLocal()
+        mavenCentral()
+    }
 }
 
 dependencies {
 
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.0'
 
-    testImplementation (
-            "com.codeborne:selenide:6.19.1",
-            "org.junit.jupiter:junit-jupiter:5.9.3",
-             'org.slf4j:slf4j-simple:2.0.17')
-    compileOnly 'org.projectlombok:lombok:1.18.30'
-    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+    implementation 'com.codeborne:selenide-clear-with-shortcut:7.6.1'
+    implementation 'org.seleniumhq.selenium:selenium-devtools-v131:4.27.0'
+    implementation("com.codeborne:selenide-selenoid:7.6.1")
+    implementation 'com.squareup.retrofit2:converter-jackson:2.9.0'
+
+    implementation 'org.junit.jupiter:junit-jupiter-params:5.11.4'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.4'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.11.4'
 }
 
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
-}
-
-task runMiniJUnit(type: JavaExec) {
-    classpath = sourceSets.test.runtimeClasspath
-    mainClass = 'guru.qa.MiniJUnit'
-    systemProperties = System.properties // опционально: передать системные свойства
-}
 
 test {
     useJUnitPlatform()

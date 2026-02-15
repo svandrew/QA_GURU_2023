@@ -1,8 +1,7 @@
 package github;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
-import io.netty.handler.codec.http.cookie.Cookie;
+
 import org.junit.jupiter.api.*;
 
 import static com.codeborne.selenide.Condition.text;
