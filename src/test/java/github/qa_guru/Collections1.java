@@ -5,11 +5,11 @@ import org.junit.jupiter.api.Test;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Collections {
+public class Collections1 {
     @Test
     public void main1() {
 
-        // <> - джененрик тип
+        // <> - дженерик тип
         List<String> stringList = new ArrayList<>();
         stringList.add("Dima");
         stringList.addAll(Arrays.asList("Petr", "Ivan", "Victor", "Nick"));
@@ -24,7 +24,7 @@ public class Collections {
         stringList.remove("Ivan"); // удаляет первое вхождение
         System.out.println("Список после удаления элементов2: " + stringList);
 
-        // Находим индекс не сузествующего Элемента
+        // Находим индекс не существующего Элемента
         var index0 = stringList.indexOf("арвроа");
         System.out.println("Индекс элемента: " + index0); // -1 если элемент не найден!!!
 
@@ -49,7 +49,7 @@ public class Collections {
             System.out.println(stringList.get(i));
         }
 
-        // SET (анаог list. но хранит только уникальные значения
+        // SET (аналог list, но хранит только уникальные значения
 
         Set<Integer> stringSet = new HashSet<>();
         stringSet.add(1);
@@ -57,8 +57,8 @@ public class Collections {
         stringSet.add(3);
         System.out.println("Список SET " + stringSet); // [1, 3],  т.к. второе добавление не удалось
 
-        Map <String, Integer> aMap = new HashMap<>(); // нужно занать как работает hashMap, для чего eaquals и hashCode
-        // нужно занать различия между list, set и map
+        Map <String, Integer> aMap = new HashMap<>(); // нужно знать как работает hashMap, для чего equals и hashCode
+        // нужно знать различия между list, set и map
     }
 
     @Test

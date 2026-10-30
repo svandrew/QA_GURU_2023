@@ -1,57 +1,96 @@
 plugins {
     id 'java'
-
 }
 
-
+group = 'guru.qa'
 version = '1.0'
 
-
-
 java {
-
     toolchain {
         languageVersion = JavaLanguageVersion.of(17)
     }
 }
 
-allprojects {
+repositories {
+    mavenCentral()
+    maven {
+        url 'http://binary/artifactory/public'
+        allowInsecureProtocol = true
+    }
+    maven {
+        url 'http://binary/artifactory/epam-reportportal'
+        allowInsecureProtocol = true
+    }
+    maven {
+        url 'http://binary/artifactory/gradleplugins/'
+        allowInsecureProtocol = true
+    }
+    mavenLocal()
+}
 
-    apply plugin: 'java'
+ext {
+    selenideVersion = '7.6.1'
+    seleniumVersion = '4.27.0'
+    junitVersion = '5.11.4'
+    lombokVersion = '1.18.48'
+}
 
-    repositories {
-        maven {
-            url 'http://binary/artifactory/public'
-            allowInsecureProtocol = true
-        }
-        maven {
-            url 'http://binary/artifactory/epam-reportportal'
-            allowInsecureProtocol = true
-        }
-        maven {
-            url 'http://binary/artifactory/gradleplugins/'
-            allowInsecureProtocol = true
-        }
-
-        mavenLocal()
-        mavenCentral()
+// Учебные примеры (Head First Java) живут в отдельном source set,
+// чтобы незавершённый код в них не блокировал сборку и запуск тестов.
+sourceSets {
+    sandbox {
+        java.srcDirs = ['src/sandbox/java']
+        resources.srcDirs = ['src/sandbox/resources']
     }
 }
 
 dependencies {
+    // Lombok: main, test и sandbox
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+    testCompileOnly "org.projectlombok:lombok:$lombokVersion"
+    testAnnotationProcessor "org.projectlombok:lombok:$lombokVersion"
+    sandboxCompileOnly "org.projectlombok:lombok:$lombokVersion"
+    sandboxAnnotationProcessor "org.projectlombok:lombok:$lombokVersion"
+    sandboxCompileOnly 'org.jetbrains:annotations:26.0.1'
 
+    // UI-тесты: Selenide + Selenium
+    testImplementation "com.codeborne:selenide:$selenideVersion"
+    testImplementation "com.codeborne:selenide-selenoid:$selenideVersion"
+    testImplementation "com.codeborne:selenide-clear-with-shortcut:$selenideVersion"
+    testImplementation "org.seleniumhq.selenium:selenium-devtools-v131:$seleniumVersion"
 
-    implementation 'com.codeborne:selenide-clear-with-shortcut:7.6.1'
-    implementation 'org.seleniumhq.selenium:selenium-devtools-v131:4.27.0'
-    implementation("com.codeborne:selenide-selenoid:7.6.1")
-    implementation 'com.squareup.retrofit2:converter-jackson:2.9.0'
+    // JSON
+    testImplementation 'com.squareup.retrofit2:converter-jackson:2.9.0'
 
-    implementation 'org.junit.jupiter:junit-jupiter-params:5.11.4'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.4'
-    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.11.4'
+    // JUnit 5
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:$junitVersion"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // Faker
+    implementation 'net.datafaker:datafaker:2.4.2'
+    sandboxImplementation 'net.datafaker:datafaker:2.4.2'
+    testImplementation 'net.datafaker:datafaker:2.4.2'
+
+    
+    sandboxImplementation 'org.apache.commons:commons-lang3:3.17.0'
 }
 
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Javadoc).configureEach {
+    options.encoding = 'UTF-8'
+}
 
 test {
     useJUnitPlatform()
+    systemProperty 'file.encoding', 'UTF-8'
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+        exceptionFormat 'full'
+    }
 }
