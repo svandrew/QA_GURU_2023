@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Collections1 {
+public class CollectionsClass{
     @Test
     public void main1() {
 
