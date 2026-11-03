@@ -10,7 +10,6 @@ public class CharCounts {
 
         for (int i = 0; i < s.length(); i++) {
             Character c = s.charAt(i);
-
             if (counts.containsKey(c)) {
                 int count = counts.get(c) + 1;
                 counts.put(c, count);
@@ -26,6 +25,7 @@ public class CharCounts {
         }
         return '_';
     }
+
     public static char firstUn(String s) {
         Map<Character, Integer> counts = new LinkedHashMap<>();
 
@@ -46,7 +46,7 @@ public class CharCounts {
         //        System.out.println(firstUnique("казак"));
         System.out.println(firstUnique("abbc"));
 //        System.out.println(firstUnique("a"));
- //       System.out.println(firstUnique(""));
+        //       System.out.println(firstUnique(""));
 //        System.out.println(firstUnique("А роза упала на лапу Азора"));
 //        System.out.println(firstUnique("арозаупаланалапуазора"));
 //        System.out.println(firstUnique("А роза упала на лапу Азора!"));
